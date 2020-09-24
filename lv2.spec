@@ -6,7 +6,7 @@
 #
 Name     : lv2
 Version  : 1.16.0
-Release  : 1
+Release  : 2
 URL      : http://lv2plug.in/spec/lv2-1.16.0.tar.bz2
 Source0  : http://lv2plug.in/spec/lv2-1.16.0.tar.bz2
 Source99 : http://lv2plug.in/spec/lv2-1.16.0.tar.bz2.asc
