@@ -6,11 +6,11 @@
 #
 Name     : lv2
 Version  : 1.16.0
-Release  : 2
+Release  : 3
 URL      : http://lv2plug.in/spec/lv2-1.16.0.tar.bz2
 Source0  : http://lv2plug.in/spec/lv2-1.16.0.tar.bz2
-Source99 : http://lv2plug.in/spec/lv2-1.16.0.tar.bz2.asc
-Summary  : Plugin standard for audio systems
+Source1  : http://lv2plug.in/spec/lv2-1.16.0.tar.bz2.asc
+Summary  : An extensible audio plugin interface.
 Group    : Development/Tools
 License  : BSD-3-Clause HPND
 Requires: lv2-bin = %{version}-%{release}
@@ -23,14 +23,9 @@ BuildRequires : libsndfile-dev
 Patch1: build.patch
 
 %description
-Autowaf
-=======
-This is autowaf, a bundle of waf and a few extensions intended to be easy to
-use directly as source code in a project.  Using this as a submodule or subtree
-named `waflib` in a project allows waf to be used without including binary
-encoded data in the waf script.  This gets along with revision control and
-distributions better, among other advantages, without losing
-self-containedness.
+This directory contains third-party vocabularies used in these LV2
+specifications.  They are occasionally very slightly modified for validity, but
+are otherwise equivalent to their original versions.
 
 %package bin
 Summary: bin components for the lv2 package.
@@ -58,7 +53,6 @@ Requires: lv2-bin = %{version}-%{release}
 Requires: lv2-data = %{version}-%{release}
 Provides: lv2-devel = %{version}-%{release}
 Requires: lv2 = %{version}-%{release}
-Requires: lv2 = %{version}-%{release}
 
 %description dev
 dev components for the lv2 package.
@@ -84,27 +78,29 @@ license components for the lv2 package.
 
 %prep
 %setup -q -n lv2-1.16.0
+cd %{_builddir}/lv2-1.16.0
 %patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1560091027
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604609420
+export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1560091027
+export SOURCE_DATE_EPOCH=1604609420
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lv2
-cp COPYING %{buildroot}/usr/share/package-licenses/lv2/COPYING
-cp waflib/COPYING %{buildroot}/usr/share/package-licenses/lv2/waflib_COPYING
+cp %{_builddir}/lv2-1.16.0/COPYING %{buildroot}/usr/share/package-licenses/lv2/aa46356a85da2de55033d4e6ec85e1daf477ba50
+cp %{_builddir}/lv2-1.16.0/waflib/COPYING %{buildroot}/usr/share/package-licenses/lv2/e9888c41b011115aedfb5fec830b2b5409fa69e2
 %make_install
 
 %files
@@ -291,7 +287,7 @@ cp waflib/COPYING %{buildroot}/usr/share/package-licenses/lv2/waflib_COPYING
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.h
+/usr/include/lv2.h
 /usr/include/lv2/atom
 /usr/include/lv2/buf-size
 /usr/include/lv2/core
@@ -356,5 +352,5 @@ cp waflib/COPYING %{buildroot}/usr/share/package-licenses/lv2/waflib_COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/lv2/COPYING
-/usr/share/package-licenses/lv2/waflib_COPYING
+/usr/share/package-licenses/lv2/aa46356a85da2de55033d4e6ec85e1daf477ba50
+/usr/share/package-licenses/lv2/e9888c41b011115aedfb5fec830b2b5409fa69e2
