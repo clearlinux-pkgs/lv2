@@ -1,3 +1,11 @@
+lv2 (1.18.2) stable;
+
+  * Various code cleanups and infrastructure improvements.
+  * eg-sampler: Save and restore gain parameter value.
+  * state: Fix state:StateChanged URI in metadata and documentation.
+
+ -- David Robillard <d@drobilla.net>  Thu, 07 Jan 2021 00:00:00 
+
 lv2 (1.18.0) stable;
 
   * Improve documentation.
