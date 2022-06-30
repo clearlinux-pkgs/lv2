@@ -6,7 +6,7 @@
 #
 Name     : lv2
 Version  : 1.18.4
-Release  : 6
+Release  : 7
 URL      : https://lv2plug.in/spec/lv2-1.18.4.tar.bz2
 Source0  : https://lv2plug.in/spec/lv2-1.18.4.tar.bz2
 Source1  : https://lv2plug.in/spec/lv2-1.18.4.tar.bz2.sig
