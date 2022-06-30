@@ -1,3 +1,17 @@
+lv2 (1.18.4) stable;
+
+  * Fix build issues with newer toolchains.
+  * Fix spelling errors.
+  * atom: Fix spelling errors.
+  * patch: Fix spelling errors.
+  * patch: Fix type and range of patch:value.
+  * patch: Make the type of patch:wildcard more precise.
+  * state: Fix spelling errors.
+  * ui: Deprecate ui:resize.
+  * ui: Fix spelling errors.
+
+ -- David Robillard <d@drobilla.net>  Thu, 26 May 2022 00:00:00 
+
 lv2 (1.18.2) stable;
 
   * Various code cleanups and infrastructure improvements.
@@ -83,7 +97,7 @@ lv2 (1.12.0) stable;
   * eg-sampler: Support patch:Get, and request initial state from UI.
   * parameters: Add range to parameters so hosts know how to control them.
   * patch: Add patch:Copy method.
-  * patch: Define patch:Get with no subject to implicitly apply to reciever.
+  * patch: Define patch:Get with no subject to implicitly apply to receiver.
     This can be used by UIs to get an initial description of a plugin.
   * units: Add lv2:Parameter to domain of units:unit.
   * units: Fix non-existent port type in examples.

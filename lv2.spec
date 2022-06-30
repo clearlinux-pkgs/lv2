@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x3672782A9BF368F3 (d@drobilla.net)
 #
 Name     : lv2
-Version  : 1.18.2
-Release  : 5
-URL      : https://lv2plug.in/spec/lv2-1.18.2.tar.bz2
-Source0  : https://lv2plug.in/spec/lv2-1.18.2.tar.bz2
-Source1  : https://lv2plug.in/spec/lv2-1.18.2.tar.bz2.asc
+Version  : 1.18.4
+Release  : 6
+URL      : https://lv2plug.in/spec/lv2-1.18.4.tar.bz2
+Source0  : https://lv2plug.in/spec/lv2-1.18.4.tar.bz2
+Source1  : https://lv2plug.in/spec/lv2-1.18.4.tar.bz2.sig
 Summary  : An extensible audio plugin interface.
 Group    : Development/Tools
 License  : BSD-3-Clause HPND
@@ -77,8 +77,8 @@ license components for the lv2 package.
 
 
 %prep
-%setup -q -n lv2-1.18.2
-cd %{_builddir}/lv2-1.18.2
+%setup -q -n lv2-1.18.4
+cd %{_builddir}/lv2-1.18.4
 %patch1 -p1
 
 %build
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644262232
+export SOURCE_DATE_EPOCH=1656604464
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -96,11 +96,11 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1644262232
+export SOURCE_DATE_EPOCH=1656604464
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lv2
-cp %{_builddir}/lv2-1.18.2/COPYING %{buildroot}/usr/share/package-licenses/lv2/aa46356a85da2de55033d4e6ec85e1daf477ba50
-cp %{_builddir}/lv2-1.18.2/waflib/COPYING %{buildroot}/usr/share/package-licenses/lv2/e9888c41b011115aedfb5fec830b2b5409fa69e2
+cp %{_builddir}/lv2-1.18.4/COPYING %{buildroot}/usr/share/package-licenses/lv2/aa46356a85da2de55033d4e6ec85e1daf477ba50
+cp %{_builddir}/lv2-1.18.4/waflib/COPYING %{buildroot}/usr/share/package-licenses/lv2/e9888c41b011115aedfb5fec830b2b5409fa69e2
 %make_install
 
 %files
