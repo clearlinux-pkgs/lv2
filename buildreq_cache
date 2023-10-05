@@ -1,4 +1,9 @@
-1.18.4
-cairo-dev
+1.18.10
+asciidoc
+doxygen
 gtk+-dev
+libsamplerate-dev
 libsndfile-dev
+pkgconfig(gtk+-2.0)
+pkgconfig(samplerate)
+pkgconfig(sndfile)
